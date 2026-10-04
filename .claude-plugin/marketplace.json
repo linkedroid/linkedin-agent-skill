@@ -1,0 +1,18 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "linkedin-agent-skill",
+  "description": "The LinkedIn agent skill pack for Claude",
+  "owner": {
+    "name": "Linkedroid",
+    "url": "https://linkedroid.com"
+  },
+  "plugins": [
+    {
+      "name": "linkedin-agent",
+      "description": "Twelve Claude skills that run a LinkedIn account, including a humanizer that strips the AI fingerprint and scores the draft on a five-check panel.",
+      "source": "./",
+      "category": "productivity",
+      "homepage": "https://linkedroid.com"
+    }
+  ]
+}
