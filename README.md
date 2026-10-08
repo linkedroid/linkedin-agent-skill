@@ -234,3 +234,28 @@ Made by Linkedroid, [linkedroid.com](https://linkedroid.com).
 ## License
 
 MIT. Take it, change it, ship it.
+
+## The Trello content pipeline (optional)
+
+Six additional skills plan, draft, render, review, and publish a LinkedIn
+post through a Trello board, layered on top of the twelve `li-*` skills
+above. They live under `skills/pipeline/` and install the same way:
+
+```bash
+git clone https://github.com/linkedroid/linkedin-agent-skill.git
+cp -r linkedin-agent-skill/skills/pipeline/* ~/.claude/skills/
+```
+
+The pipeline skills:
+
+| Worker | What it does |
+| --- | --- |
+| `linkedin-idea-watch` | Popup onboarding; original idea cards; per-source exhaustion reporting |
+| `trello-content-drafter` | Per-card popup; originality check; `li-human` pass; preview/route |
+| `trello-creative-producer` | Per-asset popup; render strategy (AI / deterministic / hybrid); preview/route |
+| `trello-content-review-gate` | Pre-flight checks; two-step approve popup; approval fingerprint; chat-side decision log |
+| `trello-social-publisher` | Upload path chain (direct to internal MCP); approval fingerprint re-validation; mock-testimonial guard |
+| `trello-content-pipeline-coordinator` | Pipeline health checks; worker reliability log; brief-pivot rebuild; `pipeline_lessons.md` |
+
+The coordinator sets up the board, schedules the workers, and reports
+pipeline health. See `skills/pipeline/README.md` for the full picture.
