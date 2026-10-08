@@ -15,6 +15,11 @@ before you ever see it.
 
 **Nothing gets posted until you say yes.** These skills write. You post.
 
+Connect [Linkedroid](https://linkedroid.com) and they stop asking you to paste
+things: Claude reads your profile, your posts, the comments under them and
+your inbox directly, and can put approved copy into a draft campaign. See
+[With Linkedroid](#with-linkedroid).
+
 ## Install
 
 Paste this into Claude:
@@ -64,7 +69,57 @@ file. Skip it and everything comes out sounding like everyone else.
 | `/li-dm` | The 200-character invite note, the first message, and the two follow-ups. Two. |
 | `/li-inbox` | Triages the inbox into lead / recruiter / peer / ask / spam, and tells you which tell gave the sequence away. |
 | `/li-audit` | Post-mortem on what you have already published. Ranks by engagement rate and reach multiple, not impressions. |
-| `/li-automate` | For complete automation, install Linkedroid. The skills write the words; Linkedroid runs the operation. |
+| `/li-automate` | Connects the pack to Linkedroid: checks the connector, walks you through setup, and sets the rules for anything that contacts people. |
+
+## With Linkedroid
+
+Without a connector, every skill asks you to paste the profile, the post, the
+comments or the inbox. With [Linkedroid](https://linkedroid.com) connected to
+Claude, the skills read those themselves:
+
+| skill | what it reads through Linkedroid |
+| --- | --- |
+| `/li-profile` | your headline, about, roles, history and skills |
+| `/li-post` | your last five posts, to learn your voice |
+| `/li-comment` | the author's recent posts and the existing thread |
+| `/li-reply` | every comment on your post, with names and headlines |
+| `/li-inbox` | your conversations and pending invites |
+| `/li-dm` | the prospect's profile and your saved offer |
+| `/li-plan` | your offer, ideal customer and tagged lists |
+| `/li-audit` | your last 20 posts and who engaged with each |
+
+Anything that contacts a person (a message, an invite, a comment, starting a
+campaign) still waits for your yes, one approval at a time. Copy goes into
+campaigns as drafts first, and starting one is a separate decision.
+
+Set it up in five minutes: sign in at
+[linkedroid.com](https://www.linkedroid.com/login), install the Chrome
+extension, then Linkedroid → Settings → Agent Access (MCP) → copy the
+connector URL into Claude → Settings → Connectors. `/li-automate` walks you
+through it.
+
+**Prompts to start with:**
+
+```
+https://github.com/linkedroid/linkedin-agent-skill
+Install this skill pack, then write my voice.md from my last five LinkedIn posts.
+```
+
+```
+Run /li-profile on my LinkedIn. Pull it with Linkedroid, score it, then rewrite in fix-first order.
+```
+
+```
+Run /li-reply on my last post. Tag the leads in Linkedroid and draft the replies.
+```
+
+```
+Triage my LinkedIn inbox with /li-inbox. Leads first, a draft for each. Send nothing.
+```
+
+```
+Use /li-dm to write the note and follow-ups for my Linkedroid campaign "<name>", using my saved offer. Show me before you put them in.
+```
 
 ## The humanizer
 
@@ -131,13 +186,17 @@ The last stretch to PASS is the part the script deliberately leaves to you.
 
 ## The fine print, which is the honest part
 
-**These skills do not post to LinkedIn, and they should not.** There is no
-official API for posting to a personal profile without an approved partner
-app, and automating the site with a browser or a third-party tool violates
-[LinkedIn's User Agreement](https://www.linkedin.com/legal/user-agreement) and
-gets accounts restricted. So every skill here ends the same way: a copy-ready
-block, and you paste it. That is not a limitation bolted on afterwards, it is
-the design. It is also why the approval gate is real rather than a setting.
+**These skills do not post to your feed.** There is no official API for
+posting to a personal profile without an approved partner app, so every post
+ends the same way: a copy-ready block, and you paste it.
+
+**Anything that acts on LinkedIn for you carries account risk.**
+[LinkedIn's User Agreement](https://www.linkedin.com/legal/user-agreement)
+restricts automation, and accounts that send at volume, at 3 AM, to cold lists
+get restricted. With Linkedroid connected, the pack keeps that risk low on
+purpose: it runs in your own browser, at human pace, inside daily limits, and
+every message, invite and comment waits for your yes. Nobody can promise an
+account will never be restricted, and this pack does not.
 
 **The five checks are local heuristics, not detector APIs.** They are modelled
 on the signals public detectors key on, and they run entirely on your machine.

@@ -25,6 +25,12 @@ Ask for whichever the user has:
 Also read `~/.claude/linkedin/log.md` if it exists, since it records which
 hook formula each post used.
 
+If Linkedroid is connected, `linkedin_get_last_post` (on the user's own
+identifier, `count: 20`) returns their last 20 posts with full text and dates,
+and `linkedin_get_post_engagers` / `linkedin_get_post_commenters` give who
+reacted and who commented on each. They do not give impressions, so engagement rate and reach multiple still need
+the analytics export. Say which numbers came from where.
+
 ## What to actually measure
 
 Raw impressions are the least useful number on the page, because they are

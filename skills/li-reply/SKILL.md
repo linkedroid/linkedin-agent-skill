@@ -17,8 +17,14 @@ skill sorts before it writes.
 
 ## Input
 
-The user pastes the comments, ideally with names and roles. Screenshots are
-fine. Do not scrape the thread with a browser tool.
+If Linkedroid is connected and the user gives a post URL (or says "my last
+post" - `linkedin_get_me` then `linkedin_get_last_post` finds it), pull the thread with
+`linkedin_get_post_commenters`. It returns each commenter's name, headline and
+comment text, which is everything triage needs. For a LEAD you are unsure of,
+`linkedin_get_profile` settles it.
+
+Otherwise the user pastes the comments, ideally with names and roles.
+Screenshots are fine. Do not scrape the thread with a browser tool.
 
 ## Triage first
 
@@ -76,3 +82,8 @@ Skipped: an agency pitch. Replying gives it reach.
 
 Then the gate: **nothing is posted until the user says yes.** They paste the
 replies themselves.
+
+With Linkedroid connected, offer one more step after the drafts: tag the LEAD
+bucket (`profiles_tag`, e.g. `lead-<post-slug>`) so those people can enter a
+campaign later. Tagging contacts nobody. If the post is still collecting
+comments, offer a watcher (`watchers_create`) that keeps tagging new leads.

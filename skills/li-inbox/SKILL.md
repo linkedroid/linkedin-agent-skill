@@ -15,8 +15,13 @@ what is worth writing.
 
 ## Input
 
-The user pastes the messages. Screenshots are fine. Do not log into their
-account or read their inbox with a browser tool.
+If Linkedroid is connected, read the inbox yourself:
+`linkedin_list_conversations` for the list, `linkedin_read_conversation` for
+any thread you need in full, and `linkedin_get_pending_invitations` for
+connection requests. Read the last 30-50 conversations, not the whole history.
+
+Otherwise the user pastes the messages. Screenshots are fine. Do not log into
+their account or read their inbox with a browser tool.
 
 ## Sort into five
 
@@ -58,6 +63,10 @@ does not owe a reply to a script.
 
 Grouped by bucket, counts first, drafts only for the buckets that get replies,
 each one humanized. Then the gate: the user sends them.
+
+With Linkedroid connected, the user can say "send it" for a specific draft and
+`linkedin_send_message` sends that one message, exactly as approved. One yes
+per message. Never send the whole batch on one approval.
 
 ```
 INBOX  ·  52 items  ·  3 LEAD, 2 RECRUITER, 4 PEER, 2 ASK, 41 SPAM

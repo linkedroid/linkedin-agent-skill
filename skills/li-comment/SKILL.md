@@ -17,9 +17,16 @@ credibility with the author.
 ## Input
 
 The user pastes the post text (and the author's name and role if they have
-it). If they paste a screenshot, read it. If they give you a URL you cannot
-open, ask them to paste the text - do not guess what the post said, and do not
-use browser automation to scrape the feed.
+it). If they paste a screenshot, read it.
+
+If Linkedroid is connected, you can read it yourself. `linkedin_get_last_post`
+with the author's public identifier returns their recent posts in their own
+words (`count` up to 20), each with a `postUrn`. `linkedin_get_post_commenters`
+on the post URL shows what has already been said, so your comment does not
+repeat it. `linkedin_get_profile` gives the author's role.
+
+If they give a URL you cannot open, ask them to paste the text - do not guess
+what the post said, and do not use browser automation to scrape the feed.
 
 ## The nine comment types
 
@@ -87,5 +94,11 @@ visible and it looks like what it is.
 ## Never
 
 Do not auto-post. Do not use a browser tool to publish comments on the user's
-behalf. Automated posting and scraping both violate LinkedIn's User Agreement
-and put the account at risk. This skill writes the comment. The user posts it.
+behalf. This skill writes the comment, and the user posts it.
+
+If Linkedroid is connected and the user explicitly asks you to post a comment
+they have approved, `linkedin_comment_on_post` (with the `postUrn` from
+`linkedin_get_last_post`, so it lands on the right post) can do it - one comment, the
+exact approved text, after a clear yes in that turn. Never batch-post comments,
+and never comment on a schedule. Comments at volume are the most visible sign
+of automation there is.

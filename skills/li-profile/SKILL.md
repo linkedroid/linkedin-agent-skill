@@ -16,10 +16,20 @@ seconds, from the headline and the first two lines of the about.
 
 ## Input
 
-Ask the user to paste: headline, about section, current role and the last two
-experience entries, plus whether they have a banner and featured section. A
-screenshot of the top card is enough for the first pass. Do not log into
-LinkedIn on their behalf.
+**If Linkedroid is connected** (its tools are named like `linkedin_get_me` and
+`linkedin_get_profile`), pull the profile yourself: `linkedin_get_me` for the
+user's own URL, then `linkedin_get_profile` for headline, about, roles, history,
+education and skills. Do not ask the user to paste what you can read. Linkedroid
+cannot see the banner, photo or featured section, so ask for a screenshot of the
+top card for those three, or score them as unknown and say so.
+
+**Otherwise**, ask the user to paste: headline, about section, current role and
+the last two experience entries, plus whether they have a banner and featured
+section. A screenshot of the top card is enough for the first pass. Do not log
+into LinkedIn on their behalf with a browser tool.
+
+Either way, nothing is written to LinkedIn. Linkedroid can read the profile but
+not edit it, and the user pastes every rewrite in themselves.
 
 ## Score it
 

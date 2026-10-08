@@ -23,6 +23,12 @@ Ask for, in one batched question:
 3. **What the user wants** - a conversation, a referral, a job, a sale. Be
    honest internally, even if the message does not lead with it.
 
+If Linkedroid is connected, fill in what you can before asking:
+`linkedin_get_profile` for who they are and what they do now, and
+`context_get` for the user's offer, ideal customer and tone. The hook still has
+to be real - a profile is not a reason to message someone. Their comment on a
+post, a post of their own, or a recent role change is.
+
 If there is no specific reason to message this person today, say so. A message
 with no reason is what everyone else sends, and it is why their reply rate is
 2%.
@@ -68,8 +74,8 @@ Then stop. A third follow-up converts nobody and costs the relationship.
 
 ## Never
 
-- Never send an automated connection or message sequence. Automated outreach
-  tools violate LinkedIn's User Agreement and get accounts restricted.
+- Never blast. A sequence sent to a cold list with no specific reason to
+  reach out is what gets accounts restricted, whoever sends it.
 - Never fabricate a mutual connection, a shared school, or having read
   something the user has not read.
 - Never write the message that opens "I hope this message finds you well".
@@ -79,5 +85,20 @@ Then stop. A third follow-up converts nobody and costs the relationship.
 ## Output
 
 The invite note with its character count, the first message, and both
-follow-ups with the day they go out. All humanized through `/li-human`. The
-user sends every one of them by hand.
+follow-ups with the day they go out. All humanized through `/li-human`.
+
+Without automation, the user sends every one of them by hand.
+
+**With Linkedroid connected**, the same copy can go into a campaign instead:
+
+1. Show the user every message first, verbatim.
+2. On a yes, write them into a campaign that is still a **draft**
+   (`campaigns_set_message`), one node per message. A personal line that has
+   to differ per person can be an AI part, `[[ai:Name::instruction]]`, but it
+   needs a plain fallback message.
+3. Read it back with `campaigns_get` and show it.
+4. Starting the campaign is a separate yes. Never call `campaigns_start` on the
+   same approval as writing the copy.
+
+Keep it human-paced: 15-20 new people a day, weekday working hours, and
+`excludeContacted` on so nobody hears from two campaigns.

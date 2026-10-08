@@ -6,7 +6,8 @@ drafts you rewrite.
 
 If you would rather not fill it in by hand, paste three of your own posts into
 Claude and say "write my voice.md from these". That works better than guessing
-at the answers.
+at the answers. With Linkedroid connected, say "write my voice.md from my
+last five posts" and Claude fetches them.
 
 ---
 

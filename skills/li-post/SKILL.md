@@ -19,7 +19,11 @@ posted it.
 1. Read `~/.claude/linkedin/voice.md` if it exists. That file is the user's
    voice profile: how they talk, what they never say, who they are talking to.
    If it does not exist, ask for **three of their own past posts**, infer the
-   voice from those, and write the file. Do not skip this and do not invent a
+   voice from those, and write the file. With Linkedroid connected,
+   fetch them instead of asking: `linkedin_get_me` for the user's identifier,
+   then `linkedin_get_last_post` with `count: 5`. `context_get` adds their
+   offer, audience and tone. Show the user the voice you inferred before
+   writing the file. Do not skip this and do not invent a
    voice. A post in the wrong voice is worse than no post.
 2. Read `hooks.json` in this folder. All 21 formulas, with templates, filled
    examples, what each is for, and how each one usually gets ruined.

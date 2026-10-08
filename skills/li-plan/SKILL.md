@@ -24,6 +24,14 @@ for four things and write them down:
    thing they built, an argument they had. This is where posts come from.
 4. Ten to twenty people or companies worth being visible to.
 
+If Linkedroid is connected, read `context_get` first: it holds the user's offer,
+ideal customer and tone, which answers question 1 and narrows question 4. For
+the engagement list, Linkedroid's search tools find people matching the ideal
+customer, tagged lists (`profiles_list_tagged`) show who already engaged, and
+`linkedin_get_last_post` on each name shows what they posted recently, which
+is what a comment needs.
+Still ask question 3. No tool knows what happened this week.
+
 ## What to post
 
 Four posts a week beats seven. Consistency is a floor, not a target, and the
